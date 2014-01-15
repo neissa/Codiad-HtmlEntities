@@ -1,7 +1,8 @@
 # HTMLEntities
 
 Select text and hit CTRL+E to transform specials char to their html code.
-like é to &eacute;
+
+like é to &amp;eacute;
 
 # Installation
 
