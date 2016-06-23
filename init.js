@@ -243,7 +243,9 @@
             texte = this.htmlentities(texte);
             return texte;
         },
-
+		fromHtmlEntities: function(string) {
+			return $('<textarea />').html(string).text();
+		},
         setKeyBindings: function() {
             var _this = this;
             if (codiad.editor.getActive() !== null) {
@@ -260,7 +262,17 @@
                     }
 
                 });
-            }
+				_commandManager.addCommand({
+                    name: 'fromHtmlEntities',
+                    bindKey: {
+                        "win": "Ctrl-Shift-E",
+                        "mac": "Ctrl-Shift-E"
+                    },
+                    exec: function () {
+                        codiad.editor.insertText(_this.fromHtmlEntities(codiad.editor.getSelectedText()));
+                    }
+                });
+			}
         },
 
 
